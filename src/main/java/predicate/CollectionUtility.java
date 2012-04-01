@@ -15,7 +15,7 @@ public class CollectionUtility {
 		}
 	}
 
-	public static <T extends Comparable> Collection<T> removeDuplicates(Collection<T> target) {
+	public static <T extends Comparable<T>> Collection<T> removeDuplicates(Collection<T> target) {
 		Collection<T> results = new TreeSet<T>(target);
 		return results;
 	}

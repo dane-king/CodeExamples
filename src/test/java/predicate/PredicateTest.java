@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import junit.framework.TestCase;
-import predicate.domain.User;
+
+import domain.common.User;
 
 public class PredicateTest extends TestCase {
 

@@ -1,4 +1,4 @@
-package drools.domain;
+package domain.drools;
 
 import java.util.Arrays;
 import java.util.List;

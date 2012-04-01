@@ -1,4 +1,4 @@
-package predicate.domain;
+package domain.common;
 
 public class User implements Comparable<User>{
 	@Override

@@ -1,4 +1,4 @@
-package drools.domain;
+package domain.drools;
 
 
 public class Applicant {
