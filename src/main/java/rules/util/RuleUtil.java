@@ -1,4 +1,4 @@
-package util;
+package rules.util;
 
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
