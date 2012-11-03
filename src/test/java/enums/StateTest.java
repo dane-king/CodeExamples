@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class StatesTest {
+public class StateTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -13,7 +13,8 @@ public class StatesTest {
 	
 	@Test
 	public void testAlabama(){
-		States alabama=States.AL;
+		State alabama=State.find(1);
+		assertEquals(State.AL,alabama);
 		assertEquals("Alabama",alabama.getLabel());
 		assertEquals("AL",alabama.name());
 		assertEquals("AL",alabama.getAbbreviation());
@@ -22,10 +23,13 @@ public class StatesTest {
 	
 	@Test
 	public void testOhio(){
-		States ohio=States.OH;
+		State ohio=State.find(35);
+		assertEquals(State.OH,ohio);
 		assertEquals("Ohio",ohio.getLabel());
 		assertEquals("OH",ohio.name());
 		assertEquals("OH",ohio.getAbbreviation());
 	}
 	
+	
+
 }
