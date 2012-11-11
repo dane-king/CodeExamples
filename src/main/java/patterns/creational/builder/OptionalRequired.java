@@ -1,6 +1,6 @@
-package patterns.creational;
+package patterns.creational.builder;
 
-public class Builder {
+public class OptionalRequired {
 
 	private final String required1;
 	private final String required2;
@@ -58,11 +58,11 @@ public class Builder {
 			this.optional3=optional3;
 			return this;
 		}
-		public Builder build(){
-			return new Builder(this);
+		public OptionalRequired build(){
+			return new OptionalRequired(this);
 		}
 	}
-	public Builder(InternalBuilder internalBuilder){
+	public OptionalRequired(InternalBuilder internalBuilder){
 		this.required1=internalBuilder.required1;
 		this.required2=internalBuilder.required2;
 		this.optional1=internalBuilder.optional1;
