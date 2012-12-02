@@ -1,4 +1,4 @@
-package patterns.behavioral.chainofresponsibility;
+package patterns.behavioral.chainofresponsibility.example1;
 
 public class StdoutLogger extends Logger {
 

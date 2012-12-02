@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+import domain.common.User;
+
 public class CollectionUtility {
 	public static <T> void filter(Iterator<T> target, Predicate<T> predicate) {
 		while (target.hasNext()) {
@@ -39,5 +41,15 @@ public class CollectionUtility {
 			}
 		}
 		return count;
+	}
+
+	public static <T> T find(Collection<T> collection,
+			Predicate<T> predicate) {
+		for (T t : collection) {
+			if(predicate.apply(t)){
+				return t;
+			}
+		}
+		return null;
 	}
 }

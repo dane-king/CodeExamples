@@ -1,4 +1,4 @@
-package patterns.behavioral.chainofresponsibility;
+package patterns.behavioral.chainofresponsibility.example1;
 
 import org.drools.core.util.StringUtils;
 

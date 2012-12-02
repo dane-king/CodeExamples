@@ -1,11 +1,11 @@
-package patterns.behavioral.chainofresponsibility;
+package patterns.behavioral.chainofresponsibility.example1;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import patterns.behavioral.chainofresponsibility.Logger.Status;
+import patterns.behavioral.chainofresponsibility.example1.Logger.Status;
 
 public class LoggingTest {
 

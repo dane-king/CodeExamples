@@ -17,10 +17,10 @@ public class PredicateTest extends TestCase {
 
 	private User beth;
 
-	private Collection<User> userCollection = new ArrayList<User>();
+	private Collection<User> userCollection;
 
 	public void setUp() {
-		userCollection.clear();
+		userCollection = new ArrayList<User>();
 		bob = new User("Bob", false);
 		mary = new User("Mary", false);
 		sam = new User("Sam", false);
@@ -30,14 +30,13 @@ public class PredicateTest extends TestCase {
 	public void testFilter2ValidUsersIterator() {
 		mary.setAuthorized(true);
 		sam.setAuthorized(true);
-
 		addUsers();
-
-		CollectionUtility.filter(userCollection.iterator(), new Predicate<User>() {
-			public boolean apply(User user) {
-				return user.isAuthorized();
-			}
-		});
+		CollectionUtility.filter(userCollection.iterator(),
+				new Predicate<User>() {
+					public boolean apply(User user) {
+						return user.isAuthorized();
+					}
+				});
 		assertTrue(userCollection.contains(mary));
 		assertTrue(userCollection.contains(sam));
 		assertEquals(2, userCollection.size());
@@ -46,11 +45,12 @@ public class PredicateTest extends TestCase {
 
 	public void testFilterNoValidUsersIterator() {
 		addUsers();
-		CollectionUtility.filter(userCollection.iterator(), new Predicate<User>() {
-			public boolean apply(User user) {
-				return user.isAuthorized();
-			}
-		});
+		CollectionUtility.filter(userCollection.iterator(),
+				new Predicate<User>() {
+					public boolean apply(User user) {
+						return user.isAuthorized();
+					}
+				});
 		assertEquals(0, userCollection.size());
 
 	}
@@ -58,11 +58,12 @@ public class PredicateTest extends TestCase {
 	public void testFilter1ValidUsersIterator() {
 		sam.setAuthorized(true);
 		addUsers();
-		CollectionUtility.filter(userCollection.iterator(), new Predicate<User>() {
-			public boolean apply(User user) {
-				return user.isAuthorized();
-			}
-		});
+		CollectionUtility.filter(userCollection.iterator(),
+				new Predicate<User>() {
+					public boolean apply(User user) {
+						return user.isAuthorized();
+					}
+				});
 		assertEquals(1, userCollection.size());
 		assertTrue(userCollection.contains(sam));
 	}
@@ -70,14 +71,13 @@ public class PredicateTest extends TestCase {
 	public void testFilter2ValidUsersCollection() {
 		mary.setAuthorized(true);
 		sam.setAuthorized(true);
-
 		addUsers();
-
-		Collection<User> users = CollectionUtility.filter(userCollection, new Predicate<User>() {
-			public boolean apply(User user) {
-				return user.isAuthorized();
-			}
-		});
+		Collection<User> users = CollectionUtility.filter(userCollection,
+				new Predicate<User>() {
+					public boolean apply(User user) {
+						return user.isAuthorized();
+					}
+				});
 		assertTrue(users.contains(mary));
 		assertTrue(users.contains(sam));
 		assertEquals(2, users.size());
@@ -86,11 +86,12 @@ public class PredicateTest extends TestCase {
 
 	public void testFilterNoValidUsersCollection() {
 		addUsers();
-		Collection<User> users = CollectionUtility.filter(userCollection, new Predicate<User>() {
-			public boolean apply(User user) {
-				return user.isAuthorized();
-			}
-		});
+		Collection<User> users = CollectionUtility.filter(userCollection,
+				new Predicate<User>() {
+					public boolean apply(User user) {
+						return user.isAuthorized();
+					}
+				});
 		assertEquals(0, users.size());
 
 	}
@@ -98,11 +99,12 @@ public class PredicateTest extends TestCase {
 	public void testFilter1ValidUsersCollection() {
 		sam.setAuthorized(true);
 		addUsers();
-		Collection<User> users = CollectionUtility.filter(userCollection, new Predicate<User>() {
-			public boolean apply(User user) {
-				return user.isAuthorized();
-			}
-		});
+		Collection<User> users = CollectionUtility.filter(userCollection,
+				new Predicate<User>() {
+					public boolean apply(User user) {
+						return user.isAuthorized();
+					}
+				});
 		assertEquals(1, users.size());
 		assertTrue(users.contains(sam));
 	}
@@ -112,9 +114,20 @@ public class PredicateTest extends TestCase {
 		userCollection.add(bob);
 		userCollection.add(sam);
 		assertEquals(6, userCollection.size());
-		Collection<User> users = CollectionUtility.removeDuplicates(userCollection);
+		Collection<User> users = CollectionUtility
+				.removeDuplicates(userCollection);
 		assertEquals(4, users.size());
 		assertTrue(users.contains(sam));
+	}
+
+	public void testFindMatch() {
+		addUsers();
+		MatchPredicate<User> predicate = new MatchPredicate<User>(new User(
+				"Mary", false));
+
+		User user = CollectionUtility.find(userCollection, predicate);
+		assertEquals("Mary", user.getName());
+
 	}
 
 	private void addUsers() {

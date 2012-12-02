@@ -25,6 +25,9 @@ public class Holidays {
 				break;
 			}
 			break;
+		default:
+			isHoliday=false;
+			break;
 		}
 		return isHoliday;
 	}

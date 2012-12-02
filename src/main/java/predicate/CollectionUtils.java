@@ -11,6 +11,8 @@ public class CollectionUtils {
 			}
 		}
 	}
+	
+	
 
 	public static <T> int count(Iterator<T> target, Predicate<T> predicate) {
 		int count = 0;
