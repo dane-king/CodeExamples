@@ -76,16 +76,16 @@ public enum State {
 	}
 	
 	//reverse lookup example
-    private static final Map<Integer,State> lookup 
+    private static final Map<Integer,State> LOOKUP 
     = new HashMap<Integer,State>();
 
     static {
     for(State s : EnumSet.allOf(State.class))
-         lookup.put(s.getCode(), s);
+         LOOKUP.put(s.getCode(), s);
     }
 
 	public static State find(Integer i) {
 		// TODO Auto-generated method stub
-		return lookup.get(i);
+		return LOOKUP.get(i);
 	}
 }
