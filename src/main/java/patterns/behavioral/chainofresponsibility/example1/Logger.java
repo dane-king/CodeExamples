@@ -38,13 +38,13 @@ public  abstract class Logger{
 		return next;
 	}
 	
-	public String message(String msg, Status currentStatus){
+	public String message(String msg, Status status){
 		String returnMsg="";
-		if(handle.shouldHandle(currentStatus)){
+		if(handle.shouldHandle(status)){
 			returnMsg += writeMessage(msg);
 		}
 		if(next !=null){
-			String nextMsg=next.message(msg,currentStatus);
+			String nextMsg=next.message(msg,status);
 			if(!StringUtils.isEmpty(nextMsg)){
 				returnMsg+=":" + nextMsg;
 			}

@@ -1,13 +1,13 @@
 package patterns.rules;
 
-public class LessThan20Rule extends AbstractRule<String, Integer> {
+public class LessThan20Rule extends AbstractRule<Integer> {
 
-	@Override
-	public boolean evaluate(final String key, final Integer value) {
-		if (key == null) {
-			throw new IllegalArgumentException("Fact object key was null");
-		}
-		return (value < 20) ? getTrue(key, value) : getFalse(key, value);
+	public LessThan20Rule(final Integer expectedValue) {
+		super(expectedValue);
+	}
+
+	public boolean evaluate(final Integer value) {
+		return (value < getExpectedValue()) ? getTrue(value) : getFalse(value);
 	}
 
 }
