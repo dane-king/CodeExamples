@@ -13,8 +13,7 @@ public class Address {
 		return this.required;
 	}
 
-	public Object getAddress1() {
-		// TODO Auto-generated method stub
+	public String getAddress1() {
 		return this.address1;
 	}
 

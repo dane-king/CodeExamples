@@ -9,9 +9,7 @@ public class AddressBuilder implements Builder<Address> {
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see patterns.creational.builder.IBuilder#build()
+	 * @see patterns.creational.builder.Builder#build()
 	 */
 	public Address build() {
 		return new Address(this);
