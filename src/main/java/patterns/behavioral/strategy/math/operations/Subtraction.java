@@ -1,6 +1,4 @@
-package patterns.behavioral.strategy.math;
-
-import patterns.behavioral.strategy.Strategy;
+package patterns.behavioral.strategy.math.operations;
 
 public class Subtraction implements Strategy {
 

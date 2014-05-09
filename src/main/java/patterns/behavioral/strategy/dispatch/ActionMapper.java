@@ -1,4 +1,7 @@
-package patterns.behavioral.strategy.actions;
+package patterns.behavioral.strategy.dispatch;
+
+import patterns.behavioral.strategy.dispatch.controllers.Dispatcher;
+import patterns.behavioral.strategy.dispatch.controllers.Response;
 
 public class ActionMapper {
 	private final Dispatcher dispatcher;

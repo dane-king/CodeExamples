@@ -14,7 +14,6 @@ public class VendingMachine {
 
 	public Product dispense(final BigDecimal amount) {
 		return new Product();
-
 	}
 
 }

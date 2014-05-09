@@ -1,4 +1,6 @@
-package patterns.behavioral.strategy;
+package patterns.behavioral.strategy.math;
+
+import patterns.behavioral.strategy.math.operations.Strategy;
 
 class Context {
 	private final Strategy strategy;

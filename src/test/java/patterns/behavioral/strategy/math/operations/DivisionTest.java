@@ -1,4 +1,4 @@
-package patterns.behavioral.strategy.math;
+package patterns.behavioral.strategy.math.operations;
 
 import static org.junit.Assert.assertEquals;
 

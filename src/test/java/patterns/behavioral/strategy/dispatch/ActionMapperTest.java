@@ -1,4 +1,4 @@
-package patterns.behavioral.strategy.actions;
+package patterns.behavioral.strategy.dispatch;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Matchers.anyVararg;
@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import patterns.behavioral.strategy.dispatch.controllers.Dispatcher;
 
 public class ActionMapperTest {
 	@Mock

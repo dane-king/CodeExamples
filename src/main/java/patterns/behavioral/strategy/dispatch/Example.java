@@ -1,7 +1,11 @@
-package patterns.behavioral.strategy.actions;
+package patterns.behavioral.strategy.dispatch;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import patterns.behavioral.strategy.dispatch.controllers.CategoryPage;
+import patterns.behavioral.strategy.dispatch.controllers.ProductPage;
+import patterns.behavioral.strategy.dispatch.controllers.Response;
 
 public class Example {
 	private final Map<String, ActionMapper> operations = new HashMap<String, ActionMapper>();

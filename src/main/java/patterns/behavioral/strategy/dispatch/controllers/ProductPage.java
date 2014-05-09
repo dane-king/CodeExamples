@@ -1,4 +1,4 @@
-package patterns.behavioral.strategy.actions;
+package patterns.behavioral.strategy.dispatch.controllers;
 
 public class ProductPage implements Dispatcher {
 
