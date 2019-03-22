@@ -1,0 +1,20 @@
+#created on: Mar 9, 2012
+package drools.rules
+import drools.domain
+
+rule "Is of valid age"
+when
+    Applicant( age < 18 )
+    a : Applicant()     
+then
+     a.setValid( false );
+     System.out.println( a );
+end
+
+rule "Application was made this year"
+when
+    a1 : Application( dateApplied > "01-jan-2012" )     
+then
+    a1.setValid( false );
+    System.out.println( a1 );
+end
