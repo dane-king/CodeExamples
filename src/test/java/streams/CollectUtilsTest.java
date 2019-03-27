@@ -62,7 +62,7 @@ public class CollectUtilsTest {
                 level="SecondLevel";
                 break;
             default:
-                level="ThirdLevelq";
+                level="ThirdLevel";
                 break;
 
         }
