@@ -1,4 +1,4 @@
-- update spring converter to newer 
+![travis logo](https://travis-ci.org/dane-king/CodeExamples.svg?branch=master) 
 
-### Status
-[https://travis-ci.org/dane-king/CodeExamples.svg?branch=master](https://travis-ci.org/dane-king/CodeExamples) 
+#### TODO
+- update spring converter to newer 
