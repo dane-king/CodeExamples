@@ -61,6 +61,20 @@
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.llorllale/cactoos-matchers -->
+        <dependency>
+            <groupId>org.llorllale</groupId>
+            <artifactId>cactoos-matchers</artifactId>
+            <version>0.14</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cactoos</groupId>
+            <artifactId>cactoos</artifactId>
+            <version>0.40</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
