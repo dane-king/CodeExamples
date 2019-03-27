@@ -49,7 +49,7 @@ public class CollectUtilsTest {
         assertThat(thirdLevel,contains(7,8,9,10));
     }
     private Function<Integer, String> groupingFn=num->{
-        String level="";
+        String level;
         switch (num){
             case 1:
             case 2:
