@@ -21,7 +21,7 @@ public class UniqueIdTest {
         private final AtomicLong counter = new AtomicLong();
 
         public long nextId() {
-            delay(2);
+            //delay(2);
             return counter.incrementAndGet();
 
         }
@@ -39,7 +39,7 @@ public class UniqueIdTest {
         private long counter = 0;
 
         public long nextId() {
-            delay(2);
+            //delay(2);
             return ++counter;
         }
 
