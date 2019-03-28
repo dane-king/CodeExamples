@@ -45,7 +45,7 @@ public class BadConcurrentMapTest {
             t.addUniqueString(name);
             //System.out.println(Collections.frequency(t.getNames(),name) + " " + t.getNames() + " " + name);
             return Collections.frequency(t.getNames(),name)==1;
-        }, new RunsInThreads<>(badConcurrentMap, 1000));
+        }, new RunsInThreads<>(badConcurrentMap, 100));
         //System.out.println(badConcurrentMap.getNames());
     }
 
