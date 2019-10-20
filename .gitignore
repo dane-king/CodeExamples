@@ -1,5 +1,4 @@
 target/
 codeexamples.iml
 .idea/
-.idea/
-code-examples.iml
+code_examples.sonargraph/
