@@ -2,7 +2,7 @@
 + Be Stateless
 	+ Thread issues come into play when modifying state of an object after creatiion
 + Be Immutable
-	+ Another reason to favor immutablilty
+	+ Another reason to favor immutability
 	+ Also functional lends itself to immutable
 + Use Atomic primitives
 	+ AtomInteger, AtomicLong, AtomicReference, etc
@@ -18,7 +18,7 @@
 	}
 	```
 + Synchronize
-	+ newer ways with count down latch, and old ways with syncronized
+	+ newer ways with count down latch, and old ways with synchronized
 
 ##### Patterns that could be not thread safe	
 - check-then-act
