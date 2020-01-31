@@ -1,5 +1,7 @@
 package optional.domain;
 
+import java.util.Objects;
+
 public class Address {
     private State state;
     private String street1;
@@ -36,5 +38,21 @@ public class Address {
 
     public void setStreet2(String street2) {
         this.street2 = street2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Address)) return false;
+        Address address = (Address) o;
+        return Objects.equals(state, address.state) &&
+                Objects.equals(street1, address.street1) &&
+                Objects.equals(zip, address.zip) &&
+                Objects.equals(street2, address.street2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(state, street1, zip, street2);
     }
 }

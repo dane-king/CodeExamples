@@ -1,5 +1,6 @@
 package lambdas;
 
+import optional.domain.Address;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CollectorsExampleTest {
@@ -45,4 +47,20 @@ public class CollectorsExampleTest {
         assertThat(collectorsExample.getFizzBuzzGame().get(CollectorsExample.GAME.NONE),contains(1,2,4,7,8,11,13,14));
     }
 
+    @Test
+    public void shouldGroupAddressesByStateAndCount() {
+        Address address12345 = buildAddress("12345");
+        CollectorsExample collectorsExample=new CollectorsExample(
+                address12345,
+                address12345,
+                buildAddress("23456"),
+                buildAddress("23457"));
+        assertThat(collectorsExample.getGroupedAddress().get("12345"), equalTo(2L));
+    }
+
+    private Address buildAddress(String zip) {
+        Address address = new Address();
+        address.setZip(zip);
+        return address;
+    }
 }
