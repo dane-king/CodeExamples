@@ -1,0 +1,1 @@
+-convert xml to property or java config

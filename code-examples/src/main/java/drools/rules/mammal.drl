@@ -1,0 +1,43 @@
+#created on: Mar 9, 2012
+package domain.drools
+
+import Animal;
+
+#list any import classes here.
+
+dialect "mvel"
+
+#declare any global variables here
+
+
+
+rule "Birds have feathers"
+    when
+        a:Animal(hasAttribute("feathers"))
+    then
+        a.setType("Bird");
+        System.out.println( a );
+end
+
+rule "Ungulates chews cud"
+    #include attributes such as "salience" here...
+    when
+         a:Animal(getType()=="Mammal" && (hasAttribute("has hooves") ||  hasAttribute("chews cud") ))
+    then
+        a.setType("Ungulate");
+        System.out.println( a );
+
+end
+
+rule "Mammals give milk"
+    #include attributes such as "salience" here...
+    when
+         a:Animal(hasAttribute("gives milk"))
+    then
+        a.setType("Mammal");
+        System.out.println( a );
+
+end
+
+
+
