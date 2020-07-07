@@ -1,4 +1,4 @@
-package conditionals;
+package conditionals.polymorphism;
 
 public class Hard implements Candy {
 	private final double cost = .25;

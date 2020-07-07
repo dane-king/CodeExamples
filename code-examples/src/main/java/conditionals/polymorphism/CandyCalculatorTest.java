@@ -1,15 +1,10 @@
-package conditionals;
+package conditionals.polymorphism;
+
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class CandyCalculatorTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
 
 	@Test
 	public void ChocolateShouldBe75Cents() {

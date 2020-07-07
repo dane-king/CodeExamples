@@ -1,4 +1,4 @@
-package conditionals;
+package conditionals.polymorphism;
 
 public class Chocolate implements Candy {
 

@@ -1,4 +1,4 @@
-package conditionals;
+package conditionals.polymorphism;
 
 public class CandyCalculator {
 	public double calculate(final String type, final int quantity) {

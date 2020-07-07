@@ -1,4 +1,4 @@
-package conditionals;
+package conditionals.polymorphism;
 
 public class Taffy implements Candy {
 	private final double cost = .4;
