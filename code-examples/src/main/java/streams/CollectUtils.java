@@ -9,16 +9,14 @@ import java.util.stream.Collectors;
 public class CollectUtils<T> {
     public Integer getPartitionedList(List<Integer> list, Function<Integer,Integer> transform, Integer beginValue){
         return list
-                .stream()
-                .collect(Collectors.reducing(beginValue,transform,Integer::sum));
+                .stream().map(transform).reduce(beginValue, Integer::sum);
 
     }
 
     public String getCSV(List<String> names){
-        return names
-                .stream()
-                .collect(Collectors.joining(","));
+        return String.join(",", names);
     }
+
     public String getQuotedCSV(List<String> names){
         return names
                 .stream()
