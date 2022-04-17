@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 
-public class StaticValidator implements Validator<String> {
+public class StaticValidator implements Validator<String>, MessageBuilder<String> {
     private final List<String> reasons=new ArrayList<>();
 
     //This also could be passed in the constructor if it needs to change
@@ -23,18 +25,18 @@ public class StaticValidator implements Validator<String> {
     private final Predicate<String> containsTestTest = (x) -> x.contains("Test");
 
 
-    Predicate<String> notNull=predicateWrapper.apply(nonNullTest,"Item is null");
-    Predicate<String> startsWithB=predicateWrapper.apply(startWithBTest,"Does not start with B");
-    Predicate<String> containsTest=predicateWrapper.apply(containsTestTest,"Does not contain Test");
+    Predicate<String> notNull=predicateWrapper.apply(nonNullTest,"%s is Null");
+    Predicate<String> startsWithB=predicateWrapper.apply(startWithBTest,"%s does not start with B");
+    Predicate<String> containsTest=predicateWrapper.apply(containsTestTest,"%s does not contain Test");
 
-        @Override
-        public boolean validate(String source) {
+    @Override
+    public boolean validate(String source) {
         return notNull.and(containsTest).and(startsWithB).test(source);
     }
 
     @Override
-    public List<String> getReasons() {
-        return Collections.unmodifiableList(reasons);
+    public List<String> getErrorMessages(String key) {
+        return reasons.stream().map(s->String.format(s,key)).collect(Collectors.toUnmodifiableList());
     }
 
 }

@@ -3,13 +3,23 @@ package predicate.validator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatorTest {
 
-    private DynamicValidator<String> dynamicValidator;
+    private final Function<String, UnaryOperator<String>> shouldStartWith = letter -> s -> s + " should start with " + letter;
+    private final UnaryOperator<String> shouldStartWithB = shouldStartWith.apply("B");
+    private final UnaryOperator<String> shouldStartWithC = shouldStartWith.apply("C");
+    private final UnaryOperator<String> shouldStartWithZ = shouldStartWith.apply("Z");
+    private final UnaryOperator<String> itemIsNull = s -> s + " is Null";
+
+
+    private DynamicValidator<String,String> dynamicValidator;
     private StaticValidator staticValidator;
 
     @BeforeEach
@@ -17,6 +27,7 @@ class ValidatorTest {
         dynamicValidator = new DynamicValidator<>();
         staticValidator = new StaticValidator();
     }
+
     @Test
     void shouldValidateNotNullItem() {
         assertFalse(staticValidator.validate("A String"));
@@ -26,8 +37,9 @@ class ValidatorTest {
     @Test
     void shouldInValidateNullItem() {
         assertFalse(staticValidator.validate(null));
-        assertTrue(staticValidator.getReasons().contains("Item is null"));
-        assertEquals(1, staticValidator.getReasons().size());
+        List<String> errorMessages = staticValidator.getErrorMessages("key");
+        assertEquals("key is Null", errorMessages.get(0));
+        assertEquals(1, errorMessages.size());
     }
 
     @Test
@@ -42,16 +54,32 @@ class ValidatorTest {
 
     @Test
     void shouldValidateAndItemsDynamically() {
-        dynamicValidator.andValidation(Objects::nonNull, "Item is null");
-        dynamicValidator.andValidation(x->x.startsWith("C"), "Item should start with C");
+        dynamicValidator.andValidation(Objects::nonNull, itemIsNull)
+                .andValidation(x -> x.startsWith("C"), shouldStartWithC);
         assertTrue(dynamicValidator.validate("C String"));
         assertFalse(dynamicValidator.validate(null));
         assertFalse(dynamicValidator.validate("A String"));
     }
+
+    @Test
+    void shouldValidateWithMessage() {
+        String key = "String";
+        dynamicValidator.andValidation(Objects::nonNull, itemIsNull)
+                .andValidation(x -> x.startsWith("C"), shouldStartWithC);
+        assertFalse(dynamicValidator.validate("D String"));
+        assertEquals("String should start with C", dynamicValidator.getErrorMessages(key).get(0));
+
+        assertFalse(dynamicValidator.validate(null));
+        assertEquals("String is Null", dynamicValidator.getErrorMessages(key).get(0));
+
+    }
+
+
     @Test
     void shouldValidateOrItemsDynamically() {
-        dynamicValidator.orValidation(x->x.startsWith("B"), "Item should start with B");
-        dynamicValidator.orValidation(x->x.startsWith("C"), "Item should start with C");
+        dynamicValidator
+                .orValidation(x -> x.startsWith("B"), shouldStartWithB)
+                .orValidation(x -> x.startsWith("C"), shouldStartWithC);
         assertTrue(dynamicValidator.validate("C String"));
         assertTrue(dynamicValidator.validate("B String"));
         assertTrue(dynamicValidator.validate("B String"));
@@ -60,9 +88,9 @@ class ValidatorTest {
 
     @Test
     void shouldValidateBothAndOrItemsDynamically() {
-        dynamicValidator.orValidation(x->x.startsWith("B"), "Item should start with B");
-        dynamicValidator.orValidation(x->x.startsWith("C"), "Item should start with C");
-        dynamicValidator.andValidation(x->x.endsWith("Z"), "Item should end with Z");
+        dynamicValidator.orValidation(x -> x.startsWith("B"), shouldStartWithB)
+                .orValidation(x -> x.startsWith("C"), shouldStartWithC)
+                .andValidation(x -> x.endsWith("Z"), shouldStartWithZ);
         assertTrue(dynamicValidator.validate("C StringZ"));
         assertTrue(dynamicValidator.validate("B StringZ"));
         assertFalse(dynamicValidator.validate("B String"));
