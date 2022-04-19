@@ -31,32 +31,32 @@ class SamsValidatorChainTest {
 
     @Test
     void shouldReturnBuilder() {
-        DynamicValidator<String,String> validator=new DynamicValidator<>();
+        DynamicValidator<String, String> validator = new DynamicValidator<>();
         validator.andValidation(isUSD, mustBeUsd)
                 .andValidation(isNull, isRequired)
                 .validate("JPY");
         assertFalse(validator.validate("JPY"));
-        assertEquals("money must be USD",validator.getErrorMessages("money").get(0));
+        assertEquals("money must be USD", validator.getErrorMessages("money").get(0));
 
     }
 
     @Test
     public void testDanesValidatorChain() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,()->new DynamicValidator<String,String>()
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> new DynamicValidator<String, String>()
                 .andValidation(isNull, isRequired)
                 .andValidation(isUSD, mustBeUsd)
-                .validateThrows("money",null));
+                .validateThrows("money", null));
 
         assertEquals("money is required", thrown.getMessage());
     }
 
     @Test
     public void testDanesValidatorList() {
-        ValidatorList<String> validatorList=new ValidatorList<>();
+        ValidatorList<String> validatorList = new ValidatorList<>();
         validatorList.addPredicate(isNull, isRequired);
         validatorList.addPredicate(isUSD, mustBeUsd);
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
-                ()-> validatorList.validateThrow(Pair.of("money","JPY")));
+                () -> validatorList.validateThrow(Pair.of("money", "JPY")));
         assertEquals("money must be USD", thrown.getMessage());
     }
 
