@@ -1,12 +1,10 @@
 package predicate.validator;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 public class StaticValidator implements Validator<String>, MessageBuilder<String> {

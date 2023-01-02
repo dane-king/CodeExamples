@@ -1,8 +1,8 @@
 package patterns.behavioral.strategy.math.operations;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class MultiplicationTest {
 	@Test

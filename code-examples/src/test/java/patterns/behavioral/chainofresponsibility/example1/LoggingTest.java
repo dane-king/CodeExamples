@@ -1,11 +1,10 @@
 package patterns.behavioral.chainofresponsibility.example1;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
-
 import patterns.behavioral.chainofresponsibility.example1.Logger.Status;
+
+import static org.junit.Assert.assertEquals;
 
 public class LoggingTest {
 

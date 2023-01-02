@@ -1,11 +1,10 @@
 package predicate;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
+import domain.common.User;
 import junit.framework.TestCase;
 
-import domain.common.User;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class PredicateTest extends TestCase {
 

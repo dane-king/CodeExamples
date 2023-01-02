@@ -3,22 +3,11 @@ package threading;
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.llorllale.cactoos.matchers.RunsInThreads;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Function;
-import java.util.function.IntFunction;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class BadConcurrentMapTest {
 

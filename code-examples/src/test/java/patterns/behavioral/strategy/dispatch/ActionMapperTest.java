@@ -1,15 +1,14 @@
 package patterns.behavioral.strategy.dispatch;
 
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.anyVararg;
-import static org.mockito.Mockito.verify;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import patterns.behavioral.strategy.dispatch.controllers.Dispatcher;
+
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.anyVararg;
+import static org.mockito.Mockito.verify;
 
 public class ActionMapperTest {
 	@Mock

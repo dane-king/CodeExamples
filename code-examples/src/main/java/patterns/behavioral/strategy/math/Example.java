@@ -1,12 +1,12 @@
 package patterns.behavioral.strategy.math;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import patterns.behavioral.strategy.math.operations.Addition;
 import patterns.behavioral.strategy.math.operations.Division;
 import patterns.behavioral.strategy.math.operations.Multiplication;
 import patterns.behavioral.strategy.math.operations.Subtraction;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Example {
 	public static void main(final String[] args) {

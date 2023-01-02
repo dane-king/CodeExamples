@@ -2,7 +2,6 @@ package patterns.java8patterns.behavior.templatemethod;
 
 import java.time.Clock;
 import java.time.Duration;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class TemplateMethodRunner {

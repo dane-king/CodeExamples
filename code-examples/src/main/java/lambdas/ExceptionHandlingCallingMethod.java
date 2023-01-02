@@ -1,8 +1,5 @@
 package lambdas;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Example of wrapping lambdas to translate be able to handle exceptions
  */

@@ -1,9 +1,9 @@
 package collections.hash;
 
+import collections.hashedObjects.WithHash;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import collections.hashedObjects.WithHash;
 
 public class HashingPractice {
 	private final Map<WithHash, String> objectkeys = new HashMap<WithHash, String>();
