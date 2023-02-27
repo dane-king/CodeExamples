@@ -4,6 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.daneking</groupId>
     <version>1.0</version>
+    <properties>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+    </properties>
     <artifactId>code-examples-parent</artifactId>
     <packaging>pom</packaging>
 
@@ -11,6 +15,7 @@
     <modules>
         <module>code-examples</module>
         <module>spring-boot</module>
+        <module>externalConfig</module>
     </modules>
 
     <dependencies>
@@ -46,6 +51,10 @@
             <version>5.2.0.CR1</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
 </project>

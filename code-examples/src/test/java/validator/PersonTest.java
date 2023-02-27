@@ -1,5 +1,6 @@
 package validator;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import javax.validation.ConstraintViolation;
@@ -10,8 +11,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
     private Person person=new Person("Fred Jones", 25);
@@ -28,8 +30,9 @@ class PersonTest {
     @Test
     void shouldValidateNameAndAge() {
         person=new Person("",null);
-        String[] expectedValues={ "Age cannot be null", "Name cannot be blank"};
-        assertArrayEquals(expectedValues, getValidationMessages().stream().map(ConstraintViolation<Person>::getMessage).toArray());
+        String[] expectedValues={ "Name cannot be blank","Age cannot be null", };
+        String[] exceptions= getValidationMessages().stream().map(ConstraintViolation<Person>::getMessage).toArray(String[]::new);
+        assertThat(exceptions, Matchers.arrayContainingInAnyOrder(expectedValues));
     }
 
     private Set<ConstraintViolation<Person>> getValidationMessages() {
