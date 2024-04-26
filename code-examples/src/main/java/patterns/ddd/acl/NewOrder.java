@@ -1,16 +1,18 @@
 package patterns.ddd.acl;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
 public class NewOrder {
-    private int orderId;
+    @Builder.Default
+    private int orderId = -1;
     private String firstName;
     private String lastName;
     private String itemName;
     private String vendorName;
+
+
 }

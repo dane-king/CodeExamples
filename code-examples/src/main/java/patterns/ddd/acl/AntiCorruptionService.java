@@ -1,16 +1,18 @@
 package patterns.ddd.acl;
 
+import patterns.ddd.acl.legacy.OrderService;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class AntiCorruptionService {
-    private OrderService facade;
+    private OrderService orderService;
 
-    public AntiCorruptionService(OrderService facade) {
-        this.facade = facade;
+    public AntiCorruptionService(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     public List<NewOrder> displayOrders(){
-        return facade.getOrders().stream().map(OrderAdapter::translate).collect(Collectors.toList());
+        return orderService.getOrders().stream().map(OrderAdapter::translate).collect(Collectors.toList());
     }
 }

@@ -4,5 +4,6 @@ import java.util.List;
 
 public interface OrderService {
     List<LegacyOrder> getOrders();
+    LegacyOrder getOrder();
 
 }
